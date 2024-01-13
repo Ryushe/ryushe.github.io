@@ -99,6 +99,12 @@ collections:
   posts:
     output: true
     permalink: /posts/:title/  
+    paginate: 5
+    paginate_path: "posts/:title/page:num/"
+    toc: true
+    toc_sticky: false
+    author_profile: true
+
 
 # Analytics
 analytics:
