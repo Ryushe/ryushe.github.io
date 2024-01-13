@@ -5,3 +5,12 @@ bundle update
 bundle exec rake preview
 bundle exec jekyll serve
 bundle exec jekyll serve --livereload
+
+
+
+
+to do:
+    SEO, social sharing and analyitic settings
+    see what the custom feed is
+    comments (using utterances rn (already installed))
+    
