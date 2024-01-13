@@ -2,8 +2,8 @@
 main:
   - title: "About"
     url: https://ryushe.github.io/about/
-  # - title: "Collections"
-  #   url: /year-archive/
+  - title: "All Posts"
+    url: https://ryushe.github.io/all-posts/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
