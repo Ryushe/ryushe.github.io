@@ -1,0 +1,7 @@
+https://github.com/mmistakes/minimal-mistakes/tree/master
+https://mmistakes.github.io/minimal-mistakes/docs/layouts/#grid-view
+bundle
+bundle update 
+bundle exec rake preview
+bundle exec jekyll serve
+bundle exec jekyll serve --livereload
