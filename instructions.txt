@@ -13,4 +13,5 @@ to do:
     SEO, social sharing and analyitic settings
     see what the custom feed is
     comments (using utterances rn (already installed))
-    
+    register domains, google, bing, etc
+    expand social platoforms
