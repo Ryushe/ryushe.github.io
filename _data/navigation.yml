@@ -6,7 +6,7 @@ main:
     url: https://ryushe.github.io/all-posts/
   - title: "Home"
     url: https://ryushe.github.io
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
+  - title: "Tools"
+    url: https://ryushe.github.io/infopages/Tools/
   # - title: "Sitemap"
   #   url: /sitemap/

@@ -104,6 +104,11 @@ collections:
     toc: true
     toc_sticky: false
     author_profile: true
+  infopages:
+    permalink: /infopages/:title
+    toc: true
+    toc_sticky: true
+    author_profile: true
 
 
 # Analytics

@@ -15,3 +15,4 @@ to do:
     comments (using utterances rn (already installed))
     register domains, google, bing, etc
     expand social platoforms
+    add tags / categories to the all posts page
