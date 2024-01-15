@@ -2,9 +2,6 @@
 layout: single
 classes: #wide
 title: "Tools"
-toc: true
-toc_sticky: true
-author_profile: true
 collection: infopages
 permalink: /tools/
 ---

@@ -105,7 +105,6 @@ collections:
     toc_sticky: false
     author_profile: true
   infopages:
-    permalink: /:collection/:title/
     toc: true
     toc_sticky: true
     author_profile: true
