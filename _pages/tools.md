@@ -7,6 +7,12 @@ toc_sticky: true
 author_profile: true
 collection: infopages
 ---
+<style>
+    ul {
+        margin-top: 0.1;
+    }
+</style>
+
 # Welcome
 Hi, this page is because I can't for the life of me remember my options when I am trying to web-test.  
 
