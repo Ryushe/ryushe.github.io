@@ -101,15 +101,8 @@ collections:
     permalink: /posts/:title/  
     paginate: 5
     paginate_path: "posts/:title/page:num/"
-    toc: true
-    toc_sticky: false
-    author_profile: true
   infopages:
-    toc: true
-    toc_sticky: true
-    author_profile: true
-
-
+    
 # Analytics
 analytics:
   provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"

@@ -4,6 +4,9 @@ classes: #wide
 title: "Tools"
 collection: infopages
 permalink: /tools/
+toc: true
+toc_sticky: true
+author_profile: true
 ---
 <style>
     ul {
