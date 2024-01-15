@@ -6,6 +6,7 @@ toc: true
 toc_sticky: true
 author_profile: true
 collection: infopages
+permalink: /tools/
 ---
 <style>
     ul {
