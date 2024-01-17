@@ -79,7 +79,7 @@ Admin has an api request that allows us to check if we are admin:
 `GET /api/v1/admin/auth`  
 Sending a GET request using burp we can see that we are indeed infact
 not admin :(  
-![Am_admin?](img/admin_false_burp.png)  
+![Am_admin?][/img/admin-false.png]  
 
 Now, there is another api url under the PUT category. This api link
 allows the user to change admin settings. Using burp to send a
@@ -136,7 +136,7 @@ user.txt file in the admin home directory.
 
 Upon logging into the user admin you are presented with a message:  
 
-![mail](img/1you_have_mail.png)  
+![mail](/assets/images/1you_have_mail.png)  
 
 Upon looking at the /var/mail directory I found the file mail:  
 
@@ -181,3 +181,6 @@ Also ldconfig allows you to see lib versions.. didnt know that
 * Better understanding of how to send burp requests and modify data
     - eg: Command injections
 
+
+
+[def]: img/admin_false_burp.png
