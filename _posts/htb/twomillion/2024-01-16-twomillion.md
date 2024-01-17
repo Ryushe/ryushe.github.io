@@ -168,7 +168,7 @@ Finally, I cd'ed into the root dir and there it was waiting for me the root.txt
 Catting the file I got the flag 
 
 
-![pwn](/img/Proof-of-pwn.png)  
+![pwn](img/Proof-of-pwn.png)  
 
 
 ### What I Learned
