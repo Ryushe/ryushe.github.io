@@ -10,7 +10,7 @@ categories: [ctf, htb]
 tags: [burp, api]
 ---
 # TwoMillion:
-![box](/_posts/htb/twomillion/img/2mil-box.png)  
+![box](img/2mil-box.png)  
 Hi, this is one of the first HTB boxes I have attempted.
 Having done a few boxes in the past I had a little idea of 
 what I was getting myself into but, this box put me through it.  
@@ -21,7 +21,7 @@ definitely recommend it.
 
 ### Nmap
 Nmap scan:
-![nmap scan](/_posts/htb/twomillion/img/nmap.png)  
+![nmap scan](img/nmap.png)  
 nmap scan found 2 tcp ports
 
 ### Page Exploration
@@ -29,14 +29,14 @@ Adding the ip and 2million.htb to my /etc/hosts file I navigated to
 the page. Upon investagation of the page there was a join page and a login
 page. The join page needed a code to get in. 
 
-![code_login](/_posts/htb/twomillion/img/code_login.png)  
+![code_login](img/code_login.png)  
 
 Refreshing the page and looking in the network tab presented me with some
 js files. One file was called inviteapi.min.js. The one issue with this
 file is it was obfuscated.
-![bad_code](/_posts/htb/twomillion/img/code_found_in-invite.api.min.js.png)  
+![bad_code](img/code_found_in-invite.api.min.js.png)  
 Upon deobfuscating the code you get:  
-![good_code](/_posts/htb/twomillion/img/fixed_code.png)  
+![good_code](img/fixed_code.png)  
 Little more readable right?
 
 Within this code there is the function makeInviteCode().
@@ -70,7 +70,7 @@ little to see how the website worked, I was able to see all the
 different things the api could do when I navigated to `/api`. Going up
 one directory would show the user all the valid api requests. 
 
-![api](/_posts/htb/twomillion/img/api_endpoints.png)  
+![api](img/api_endpoints.png)  
 
 Notice how there is a url to generate a vpn for not only a normal user,
 but for an admin as well. 
@@ -79,23 +79,23 @@ Admin has an api request that allows us to check if we are admin:
 `GET /api/v1/admin/auth`  
 Sending a GET request using burp we can see that we are indeed infact
 not admin :(  
-![Am_admin?](/_posts/htb/twomillion/img/admin_false_burp.png)  
+![Am_admin?](img/admin_false_burp.png)  
 
 Now, there is another api url under the PUT category. This api link
 allows the user to change admin settings. Using burp to send a
 request will result in the a response saying "danger", "missing
 perameter: email"
 
-![email_not_valid](/_posts/htb/twomillion/img/Missing_email_peram.png)  
+![email_not_valid](img/Missing_email_peram.png)  
 
 Adding the email perameter you get something that looks like this:  
 
-![email_valid](/_posts/htb/twomillion/img/Misisng_isadmin_peram.png)  
+![email_valid](Misisng_isadmin_peram.png)  
 
 Adding in the admin block and then checking our admin status we get:  
 Note: is_admin has to be set to 1 like this `"is_admin":1`  
 
-![admin_true](/_posts/htb/twomillion/img/admin_true.png)  
+![admin_true](img/admin_true.png)  
 
 Now, is when the magic starts to happen. We're root right? Ya, remember
 the api call I mentioned before `api/v1/admin/vpn/generate`? We
@@ -136,11 +136,11 @@ user.txt file in the admin home directory.
 
 Upon logging into the user admin you are presented with a message:  
 
-![mail](/_posts/htb/twomillion/img/1you_have_mail.png)  
+![mail](img/1you_have_mail.png)  
 
 Upon looking at the /var/mail directory I found the file mail:  
 
-![mail_contents](/_posts/htb/twomillion/img/2mail.png)  
+![mail_contents](img/2mail.png)  
 
 The email gave clues to check the db config so thats where I headed next.
 Logging into mysql with the valid credentials I got from the .env file.
@@ -159,7 +159,7 @@ Upon further investagation I found this [repo](https://github.com/sxlmnwb/CVE-20
 `./fuse ./ovlcap/lower ./gc`  
 5. In the second terminal I ran `./exp` (and just like that we had root)  
 
-![root](./img/3proof-root.png)  
+![root](img/3proof-root.png)  
 
 I ran sudo apt install plocate (to make finding the root flag easier)  
 It did not.... (ended up waiting for it to fail over and over)  
