@@ -10,7 +10,7 @@ categories: [ctf, htb]
 tags: [burp, api]
 ---
 # TwoMillion:
-![box](/assets/images/twomillion3/2mil_box.png)  
+![box](/assets/images/twomillion/2mil_box.png)  
 Hi, this is one of the first HTB boxes I have attempted.
 Having done a few boxes in the past I had a little idea of 
 what I was getting myself into but, this box put me through it.  
@@ -21,7 +21,7 @@ definitely recommend it.
 
 ### Nmap
 Nmap scan:
-![nmap scan](/assets/images/twomillion3/nmap.png)  
+![nmap scan](/assets/images/twomillion/nmap.png)  
 nmap scan found 2 tcp ports
 
 ### Page Exploration
@@ -29,14 +29,14 @@ Adding the ip and 2million.htb to my /etc/hosts file I navigated to
 the page. Upon investagation of the page there was a join page and a login
 page. The join page needed a code to get in. 
 
-![code_login](/assets/images/twomillion3/code_login.png)  
+![code_login](/assets/images/twomillion/code_login.png)  
 
 Refreshing the page and looking in the network tab presented me with some
 js files. One file was called inviteapi.min.js. The one issue with this
 file is it was obfuscated.
-![bad_code](/assets/images/twomillion3/code_found_in_invite.api.min.js.png)  
+![bad_code](/assets/images/twomillion/code_found_in_invite.api.min.js.png)  
 Upon deobfuscating the code you get:  
-![good_code](/assets/images/twomillion3/fixed_code.png)  
+![good_code](/assets/images/twomillion/fixed_code.png)  
 Little more readable right?
 
 Within this code there is the function makeInviteCode().
@@ -70,7 +70,7 @@ little to see how the website worked, I was able to see all the
 different things the api could do when I navigated to `/api`. Going up
 one directory would show the user all the valid api requests. 
 
-![api](/assets/images/twomillion3/api_endpoints.png)  
+![api](/assets/images/twomillion/api_endpoints.png)  
 
 Notice how there is a url to generate a vpn for not only a normal user,
 but for an admin as well. 
@@ -79,23 +79,23 @@ Admin has an api request that allows us to check if we are admin:
 `GET /api/v1/admin/auth`  
 Sending a GET request using burp we can see that we are indeed infact
 not admin :(  
-![Am_admin?][/assets/images/twomillion3/admin_false.png]  
+![Am_admin?][/assets/images/twomillion/admin_false.png]  
 
 Now, there is another api url under the PUT category. This api link
 allows the user to change admin settings. Using burp to send a
 request will result in the a response saying "danger", "missing
 perameter: email"
 
-![email_not_valid](/assets/images/twomillion3/Missing_email_peram.png)  
+![email_not_valid](/assets/images/twomillion/Missing_email_peram.png)  
 
 Adding the email perameter you get something that looks like this:  
 
-![email_valid](/assets/images/twomillion3/Missing_isadmin_peram.png)  
+![email_valid](/assets/images/twomillion/Missing_isadmin_peram.png)  
 
 Adding in the admin block and then checking our admin status we get:  
 Note: is_admin has to be set to 1 like this `"is_admin":1`  
 
-![admin_true](/assets/images/twomillion3/admin_true.png)  
+![admin_true](/assets/images/twomillion/admin_true.png)  
 
 Now, is when the magic starts to happen. We're root right? Ya, remember
 the api call I mentioned before `api/v1/admin/vpn/generate`? We
@@ -159,7 +159,7 @@ Upon further investagation I found this [repo](https://github.com/sxlmnwb/CVE-20
 `./fuse ./ovlcap/lower ./gc`  
 5. In the second terminal I ran `./exp` (and just like that we had root)  
 
-![root](/assets/images/twomillion3/proof_root.png)  
+![root](/assets/images/twomillion/3proof_root.png)  
 
 I ran sudo apt install plocate (to make finding the root flag easier)  
 It did not.... (ended up waiting for it to fail over and over)  
@@ -168,7 +168,7 @@ Finally, I cd'ed into the root dir and there it was waiting for me the root.txt
 Catting the file I got the flag 
 
 
-![pwn](/assets/images/twomillion3/Proof_of_pwn.png)  
+![pwn](/assets/images/twomillion/Proof_of_pwn.png)  
 
 
 ### What I Learned
