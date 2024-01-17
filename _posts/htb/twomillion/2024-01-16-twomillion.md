@@ -159,7 +159,7 @@ Upon further investagation I found this [repo](https://github.com/sxlmnwb/CVE-20
 `./fuse ./ovlcap/lower ./gc`  
 5. In the second terminal I ran `./exp` (and just like that we had root)  
 
-![root](/_posts/htb/twomillion/img/3proof_root.png)  
+![root](./img/3proof-root.png)  
 
 I ran sudo apt install plocate (to make finding the root flag easier)  
 It did not.... (ended up waiting for it to fail over and over)  
@@ -168,7 +168,7 @@ Finally, I cd'ed into the root dir and there it was waiting for me the root.txt
 Catting the file I got the flag 
 
 
-![pwn](/img/Proof_of_pwn.png)  
+![pwn](/img/Proof-of-pwn.png)  
 
 
 ### What I Learned
