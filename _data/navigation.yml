@@ -2,10 +2,10 @@
 main:
   - title: "About"
     url: https://ryushe.github.io/about/
-  - title: "All Posts"
+  - title: "Categories"
     url: https://ryushe.github.io/categories/
-  - title: "Home"
-    url: https://ryushe.github.io
+  - title: "Tags"
+    url: https://ryushe.github.io/tags/
   - title: "Tools"
     url: https://ryushe.github.io/tools/
   # - title: "Sitemap"
