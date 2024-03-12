@@ -10,7 +10,6 @@ categories: [sherlock, htb]
 tags: [logs, sqlite]
 ---
 
-# BumbleBee
 ![Title](/assets/images/bumblebee/title.png)
 A little context about this box, this box is a DFIR aka digital forensics and
 incident response.  

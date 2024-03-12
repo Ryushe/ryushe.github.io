@@ -9,7 +9,6 @@ collection: posts
 categories: [ctf, htb]
 tags: [burp, api]
 ---
-# TwoMillion:
 ![box](/assets/images/twomillion/2mil_box.png)  
 Hi, this is one of the first HTB boxes I have attempted.
 Having done a few boxes in the past I had a little idea of 
