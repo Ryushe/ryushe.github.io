@@ -14,7 +14,11 @@ Hi, this page is because I can't for the life of me remember my options when I a
 
 ## General tips
 flask -> usually jinja2  
-```2> /dev/null``` - hides error ouput  
+```2> /dev/null``` - hides error output  
+
+## Tmux
+`tmux a` - attaches session
+`tmux -S <name>` - attaches file session or creates one of that name
 
 ## Brute-Force
 ffuf  
