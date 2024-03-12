@@ -1,12 +1,12 @@
 ---
 layout: single
 classes: #wide
-title: "TwoMillion - HTB"
+title: "Hack The Box - TwoMillion"
 toc: true
 toc_sticky: false
 author_profile: true
 collection: posts
-categories: [ctf, htb]
+categories: [CTF, Hack The Box]
 tags: [burp, api]
 ---
 ![box](/assets/images/twomillion/2mil_box.png)  

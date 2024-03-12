@@ -1,15 +1,14 @@
 ---
 layout: single
 classes: #wide
-title: "Render Quest - HTB"
+title: "Hack The Box - Render Quest"
 toc: true
 toc_sticky: false
 author_profile: true
 collection: posts
-categories: [ctf, htb]
+categories: [CTF, Hack The Box]
 tags: [burp, web injection, go]
 ---
-# Render Quest:
 ![title](/assets/images/renderquest/titleImage.png)
 
 <b>Challenge Description</b>:  

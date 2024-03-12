@@ -1,12 +1,12 @@
 ---
 layout: single
 classes: #wide
-title: "BumbleBee - HTB"
+title: "Hack The Box - BumbleBee"
 toc: true
 toc_sticky: false
 author_profile: true
 collection: posts
-categories: [sherlock, htb]
+categories: [Sherlock, Hack The Box]
 tags: [logs, sqlite]
 ---
 

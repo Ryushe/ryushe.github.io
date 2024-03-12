@@ -3,7 +3,7 @@ main:
   - title: "About"
     url: https://ryushe.github.io/about/
   - title: "All Posts"
-    url: https://ryushe.github.io/all-posts/
+    url: https://ryushe.github.io/categories/
   - title: "Home"
     url: https://ryushe.github.io
   - title: "Tools"

@@ -5,7 +5,7 @@ title: "Blog goals"
 # toc: true
 # toc_sticky: false
 collection: posts
-categories: [general]
+categories: [etc]
 tags: [goals]
 ---
 Hi there, my name is Jaadyn Humphries. If you haven't seen the about page I am a
