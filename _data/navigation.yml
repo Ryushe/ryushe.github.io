@@ -13,7 +13,7 @@ main:
 
 infosec:
   - title: "Pentest Info"
-    - children:
+    children:
       - title: "General Info"
         - url: /infosec/general/
       - title: "Windows Boxes"
