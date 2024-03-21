@@ -7,6 +7,14 @@ main:
   - title: "Tags"
     url: https://ryushe.github.io/tags/
   - title: "Tools"
-    url: https://ryushe.github.io/tools/
+    url: https://ryushe.github.io/infosec/general.md
   # - title: "Sitemap"
   #   url: /sitemap/
+
+infosec:
+  - title: "Pentest Info"
+    - children:
+      - title: "General Info"
+        - url: /infosec/general/
+      - title: "Windows Boxes"
+        - url: /infosec/windows/

