@@ -3,7 +3,7 @@ layout: single
 classes: #wide
 title: "Hack The Box - Encryption Bot"
 toc: true
-date: 20224-03-19
+date: 2024-03-19
 toc_sticky: false
 author_profile: true
 collection: posts

