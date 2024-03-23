@@ -18,3 +18,5 @@ infosec:
         url: /infosec/general/
       - title: "Windows Boxes"
         url: /infosec/windows/
+      - title: "Metasploit and Shells"
+        url: /infosec/metasploit/

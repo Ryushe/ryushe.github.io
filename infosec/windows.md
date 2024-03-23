@@ -13,13 +13,13 @@ author_profile: true
 ---
 
 # Powershell
-`powershell -c "Command"`
+`powershell -c "Command"`  
 `Get-ChildItem -Path . *.txt -Recurse` - search for file (this case .txt)
 
 ## Meterpreter
-`load powershell` - loads into meterpreter
-`powershell_shell`
-`shell`
+`load powershell` - loads into meterpreter  
+`powershell_shell`  
+`shell`  
 
 # Post shells
 Uploading files: 
@@ -42,13 +42,11 @@ contains:
 * bypass
 * Scans
 * shells
-* and more
-website [here](https://github.com/samratashok/nishang)
+* and more (website [here](https://github.com/samratashok/nishang))
 
 # wes - exploit checker for win
-`systeminfo > txt`
-`wes txt`
-[site](https://github.com/bitsadmin/wesng)
+`systeminfo > txt`  
+`wes txt` -   [site](https://github.com/bitsadmin/wesng)
 
 
 
