@@ -86,3 +86,20 @@ ex msfconsole listener:
 `channel -i <session>` - attaches
 `upload <file>` - uploads file
 
+## SQL
+`' or 1=1 -- -`  
+
+### SQL Map
+`sqlmap -r request.txt --dbms=<db> --dump`
+- dumps off request to site, attempts to do a sqli
+
+## SSH
+`ssh -L <port>:website:80 <user>@myserver`  
+- port forwarding, allowing access to website from myserver  
+`ssh -R <port>:website:80 <user>@myserver`  
+- reverse forwarding, allowing others to view your traffic
+
+
+## Sockets
+`ss -tulpn` (tcp, udp, listenting only, process using socket, dont respolve service names)  
+ 

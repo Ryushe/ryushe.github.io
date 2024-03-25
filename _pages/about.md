@@ -24,7 +24,9 @@ but be able to help someone else in the process. (I also had no prior experience
 with ruby/big website projects so this helped push me out of my comfort zone a
 little.)
 
-
+# Certifications
+* CompTIA Security+ 
+* Flatiron School Cybersecurity Engineering Certificate
 
 
 
