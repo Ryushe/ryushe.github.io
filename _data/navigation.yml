@@ -20,3 +20,5 @@ infosec:
         url: /infosec/windows/
       - title: "Metasploit and Shells"
         url: /infosec/metasploit/
+      - title: "Bounties"
+        url: /infosec/bounties/
