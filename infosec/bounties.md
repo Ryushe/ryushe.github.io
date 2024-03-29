@@ -6,7 +6,7 @@ sidebar:
     title: "Bounties"
     nav: infosec
 collection: infopages
-permalink: /infosec/general/
+permalink: /infosec/bounties/
 toc: true
 toc_sticky: true
 author_profile: true
