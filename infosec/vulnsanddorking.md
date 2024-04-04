@@ -3,7 +3,7 @@ layout: single
 classes: #wide
 title: "Vulns & Dorking"
 sidebar:
-    title: "Vulns & Dorking"
+    title: "vulnsanddorking"
     nav: infosec
 collection: infopages
 permalink: /infosec/vulnsanddorking/
