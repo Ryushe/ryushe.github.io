@@ -18,3 +18,11 @@ infosec:
         url: /infosec/recon/
       - title: "Vulns and Dorking"
         url: /infosec/vulnsanddorking/
+  - title: "Information"
+    childern:
+      - title: "General Info"
+        url: /infosec/general/
+      - title: "Windows Boxes"
+        url: /infosec/windows/
+      - title: "Metasploit and Shells"
+        url: /infosec/metasploit/
