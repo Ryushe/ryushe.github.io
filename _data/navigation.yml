@@ -12,15 +12,16 @@ main:
   #   url: /sitemap/
 
 infosec:
-  - title: "Pentest Info"
+  - title: "Methodology"
     children:
       - title: "Recon"
         url: /infosec/recon
+      - title: "Vulns & Dorking"
+        url: /infosec/vulnsanddorking/
+  - title: "Information"
       - title: "General Info"
         url: /infosec/general/
       - title: "Windows Boxes"
         url: /infosec/windows/
       - title: "Metasploit and Shells"
         url: /infosec/metasploit/
-      - title: "Bounties"
-        url: /infosec/bounties/

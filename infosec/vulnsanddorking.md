@@ -1,12 +1,12 @@
 ---
 layout: single
 classes: #wide
-title: "Bounties"
+title: "Vulns & Dorking"
 sidebar:
-    title: "Bounties"
+    title: "Vulns & Dorking"
     nav: infosec
 collection: infopages
-permalink: /infosec/bounties/
+permalink: /infosec/vulnsanddorking/
 toc: true
 toc_sticky: true
 author_profile: true
