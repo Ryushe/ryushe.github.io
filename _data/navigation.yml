@@ -14,6 +14,8 @@ main:
 infosec:
   - title: "Pentest Info"
     children:
+      - title: "Recon"
+        url: /infosec/recon
       - title: "General Info"
         url: /infosec/general/
       - title: "Windows Boxes"
