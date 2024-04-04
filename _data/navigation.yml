@@ -16,10 +16,10 @@ infosec:
     children:
       - title: "Recon"
         url: /infosec/recon/
-      - title: "Vulns and Dorking"
-        url: /infosec/vulnsanddorking/
+      - title: "Vulns"
+        url: /infosec/vulns/
   - title: "Information"
-    childern:
+    children:
       - title: "General Info"
         url: /infosec/general/
       - title: "Windows Boxes"
