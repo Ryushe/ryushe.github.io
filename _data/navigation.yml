@@ -15,7 +15,7 @@ infosec:
   - title: "Methodology"
     children:
       - title: "Recon"
-        url: /infosec/recon
+        url: /infosec/recon/
       - title: "Vulns and Dorking"
         url: /infosec/vulnsanddorking/
   - title: "Information"
