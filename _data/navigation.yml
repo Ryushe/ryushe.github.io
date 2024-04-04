@@ -16,7 +16,7 @@ infosec:
     children:
       - title: "Recon"
         url: /infosec/recon
-      - title: "Vulns & Dorking"
+      - title: "Vulns and Dorking"
         url: /infosec/vulnsanddorking/
   - title: "Information"
       - title: "General Info"
