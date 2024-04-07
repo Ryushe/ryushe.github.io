@@ -11,6 +11,17 @@ toc: true
 toc_sticky: true
 author_profile: true
 ---
+# gobuster
+* `gobuster dir -u <url> -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-1.0.txt`
+
+# Samba
+* SMBclient:
+    - `smbclient //ip/share -U <user>` - login to share with user
+    - `smbclient -L //ip` - list shares
+* Smbget:
+    - `smbget -S smb://ip/share -U <user>` - get samba user share
+* Nmap:
+    - `nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse <ip>`
 
 # Google Dorking
 
