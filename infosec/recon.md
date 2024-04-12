@@ -12,7 +12,8 @@ toc_sticky: true
 author_profile: true
 ---
 # gobuster
-* `gobuster dir -u <url> -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-1.0.txt`
+* `gobuster dir -u $ip -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-1.0.txt`
+* `gobuster dir -u $ip -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt --output daily.buster`
 
 # Samba
 * SMBclient:
@@ -22,6 +23,13 @@ author_profile: true
     - `smbget -S smb://ip/share -U <user>` - get samba user share
 * Nmap:
     - `nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse <ip>`
+
+
+# SQL
+* SQLmap  
+    - recon
+    - Dump specified table
+        * `sqlmap -u $url --risk=3 --level=5 --random-agent  --dbs -T $table -p $peram --dump`
 
 # Google Dorking
 

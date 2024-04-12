@@ -294,8 +294,6 @@ Access-Control-Allow-Credentials: true
 Access-Control-Allow-Origin  
 - means any domain can access resources from the vulnerable domain
 
-
-
 # keep in mind
 - Devs make mistakes  
 - Stick to what you know and don't get overwhelmed

