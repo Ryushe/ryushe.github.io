@@ -26,5 +26,3 @@ infosec:
         url: /infosec/windows/
       - title: "Metasploit and Shells"
         url: /infosec/metasploit/
-      - title: "dork"
-        url: https://dorks.rohsec.com/
