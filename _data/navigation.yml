@@ -8,6 +8,8 @@ main:
     url: https://ryushe.github.io/tags/
   - title: "Tools"
     url: https://ryushe.github.io/infosec/general/
+  - title: "Dork"
+    url: https://dorks.rohsec.com/
   # - title: "Sitemap"
   #   url: /sitemap/
 
