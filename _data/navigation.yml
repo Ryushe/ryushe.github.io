@@ -28,3 +28,9 @@ infosec:
         url: /infosec/metasploit/
       - title: "Dorks"
         url: https://dorks.rohsec.com/
+      - title: "Browser hotkeys"
+        url: /hotkeys
+  - title: "CTFs n Such"
+    children:
+      - title: "General CTF info"
+        url: /ctfs_n_such/general

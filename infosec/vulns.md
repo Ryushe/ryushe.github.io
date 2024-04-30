@@ -68,6 +68,7 @@ everything about WAF from security perspective [here](https://github.com/0xInfec
 - [Payloads](https://github.com/payloadbox/xss-payload-list)
 - Tools (not sure abou thte category test):
     - general [xssrapy](https://github.com/DanMcInerney/xsscrapy)
+    - [brutexss](https://github.com/shawarkhanethicalhacker/BruteXSS-1)
     - DOM [blueclosure](https://www.blueclosure.com/) - paid
     - [KNOXSS](https://knoxss.me/?page_id=1974) - paid
 

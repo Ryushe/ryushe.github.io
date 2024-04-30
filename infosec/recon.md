@@ -76,7 +76,7 @@ seclists - /usr/share/wordlists/seclists
 
 # lostsec methodology
 1. `subfinder -dL urls.txt -all -recursive -o new-subdomains.txt`
-1. `curl -s https://crt.sh/\?q\=\navan.com\&output\=json | jq -r '.[].name_value' | grep -Po '(\w+\.\w+\.\w+)$' | anew new-subdomains.txt`
+1. `curl -s https://crt.sh/\?q\=\$url\&output\=json | jq -r '.[].name_value' | grep -Po '(\w+\.\w+\.\w+)$' | anew new-subdomains.txt`
 1. `cat new-subdomains.txt | httpx-toolkit -l new-subdomains.txt -ports 443,80,8080,8000,8888 -threads 200 > subdomains_alive.txt`
     - httpx-toolkit - crawling/scraping, benchmarking, web app testing, api testing and more
 1. `naabu -list new-subdomains.txt -c 50 -nmap-cli 'nmap -sV -sC' -o naabu-full.txt`
@@ -105,3 +105,4 @@ seclists - /usr/share/wordlists/seclists
 
 # another methodology
 ![lol](https://pbs.twimg.com/media/GJudL27WUAM16SB?format=jpg&name=small)
+

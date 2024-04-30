@@ -15,6 +15,8 @@ author_profile: true
 # Welcome
 Hi, this page is because I can't for the life of me remember my options when I am trying to web-test.  
 
+email: ryushe@bugcrowdninja-demon.com
+
 # General tips
 flask -> usually jinja2  
 ```2> /dev/null``` - hides error output  
