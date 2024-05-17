@@ -93,7 +93,7 @@ seclists - /usr/share/wordlists/seclists
     - anew - appends new files
 1. `cat jsfiles.txt | while read url; do python3 ~/tools/SecretFinder/SecretFinder.py -i $url -o cli >> secret.txt; done`
     - for url run secretfinder
-1. `nuclei -list filterparam.txt -c 70 -rl 200 -fhr -lfa -t -o nucleinavan.txt -es info`
+1. `nuclei -list filterparam.txt -c 70 -rl 200 -fhr -lfa -t ~/tools/Custom-Nuclei-Templates -o nuclei.txt -es info`
     - nuclei - sends requests accross argets based on template
 
 ## Tools & links 

