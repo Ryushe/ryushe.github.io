@@ -93,6 +93,8 @@ How to exploit BAC:
     - ex: Altering shopping cart post order
 
 Horizontal Priv Esc - when attacker gains access to resources belonging to another user  
+- IDORS
+
 Vertical Priv Esc - attacker access to privileged functionality, not permitted to access    
 - Isadmin=true? --> if true gets admin
 - role=1? -> setting custom vars to gain admin perms
@@ -101,6 +103,12 @@ Access Control Vulns in Multi-Step Process
     - `X-Rewrite-URL` can do same
 - /confirm -> /delete (deletes user)
 - devs commonly asume can never call /delete manually so all ac on /confirm
+- Possible to change method? `POST, GET, PUT, DELETE`
+- is /endpt and /ENDPT the same? 
+    - is it a pattern match?  - common on springboard
+        - eg: /endpt.wahoo == /endpt
+    - What about /admin/ vs /admin
+
 Other:
 - bypasssing control chekcs by modifying params in URL or HTML page
 Accessing API with missing contorls on POST, PUT and DELETE methods
@@ -111,6 +119,26 @@ Accessing API with missing contorls on POST, PUT and DELETE methods
 Terms:  
 Session Management - id's which subsequent http requests are being made by each user  
 - token/cookie (ex)
+
+Areas to look for: 
+1. /admin not protected just hidden
+2. js file discloses admin endpoint
+3. Can control decisions by submitting value
+    - eg: ?admin=true or role=1
+4. can get around controls by adding custom header
+    - X-Original-URL: /admin/deleteUser
+5. changing request type `GET, POST, PUT, DELETE` causes application to run request 
+6. idors hehe
+    - idor + improper storage of files (in this case files had guid in them)
+    - sends the request but deoesnt show user??? www
+    - idor -> source code contains cleartext passwords
+    - idor -> easily named files that are cleartext
+        - resend request with different filename and download file
+7. steps of validation with incorrect ac's 
+8. referers -> submitted in HTTP indicating which page initiated request
+    - if referer == /admin request allowed 
+        - works because request scanned to see if admin, if admin request allowed through
+9. Location controls
 
 Resources [link](https://www.youtube.com/watch?v=_jz5qFWhLcg&ab_channel=RanaKhalil)
 
