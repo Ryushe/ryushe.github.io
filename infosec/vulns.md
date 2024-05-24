@@ -140,6 +140,8 @@ Areas to look for:
         - works because request scanned to see if admin, if admin request allowed through
 9. Location controls
 
+![auth table](/assets/images/etc/auth_table.png)
+
 Resources [link](https://www.youtube.com/watch?v=_jz5qFWhLcg&ab_channel=RanaKhalil)
 
 # XSS
