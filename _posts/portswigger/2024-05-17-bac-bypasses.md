@@ -7,7 +7,7 @@ toc_sticky: false
 author_profile: true
 collection: posts
 categories: [portswigger]
-tags: [learning]
+tags: [burp]
 ---
 
 Embarking on a journey to learn more about the OWASP top 10 vulnerabilites led me to the PortSwigger Broken Access Controls labs. For the sake of time I am not going to go super indepth upon these shorter labs, but touch base and explain what I learned. 
