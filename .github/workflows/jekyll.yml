@@ -21,17 +21,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Ruby manually (optional)
-        run: |
-          curl -fsSL https://github.com/rbenv/ruby-build/releases/download/v20231023/ruby-build.tar.gz | tar -xz
-          ./ruby-build/bin/ruby-build 3.1.4 /opt/hostedtoolcache/Ruby/3.1.4/x64
-          echo 'Ruby installed manually'
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@8575951200e472d5f2d95c625da0c7bec8217c42
+      - name: Set up Ruby environment
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1.4' # Specify an exact version
-          bundler-cache: true # Installs dependencies and caches them
+          ruby-version: '3.1'
+          bundler-cache: true
+          cache-version: 0
+
+      # Install dependencies required for Jekyll
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y libffi-dev zlib1g-dev build-essential
 
       - name: Setup Pages
         id: pages
