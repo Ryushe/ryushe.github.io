@@ -36,7 +36,25 @@ This section consisted of two labs:
     - challenge solution: using intruder or ffuf we can add a lot of items to our cart, eventually the overage of items makes the price go negative. 
         - Note: the cart could not be a negative value
     - remediations: limit the ammount of items that a user can hold in their cart, when the cart value hits the threshold amount don't let it increase anymore
-  
+3. an issue with the registration page
+    - this area had a lot of issues, from poor access controls to a buffer overflow in the email section
+    - creating an account with the email domiain consisting of more than 255 characters it would be cut off
+        - navigating to /admin we find that the only check is that we are apart of dontwannacry.com
+    - this allows the user to craft a payload that contains lots of initial jibberish, .dontwannacry.com in the middle and adding our actual email sub at the end
+        - we are able to append our email because our inbox allows us to see all subdomains of our account
+    - now that we have a dontwannacry.com subdomain we can then navigate to the admin page and modify carlos's user
+    - side note: 
+        - turns out to solve this lab we weren't supposed to put the extra characters in the email's domain. The actual solution has us put it in the inital part before the @ sign. 
+    - remediations:
+        - check to see if user has actual permissions before allowing into the admin pannel / do admin actions
+        - dont allow large emails to be sent (already have client side controls, but no backend controls)
+        - don't allow subdomains of dontwannacry.com
 
+example payload
+```
+book@ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt.dontwannacry.com.exploit-0a1b00a204a2ae64821c4b99018e00d6.exploit-server.net
+```
+
+# Making flawed assumptions about user behavior
 
 
