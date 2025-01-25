@@ -7,21 +7,30 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  setup-ruby:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
+      - name: Install rbenv and Ruby 3.1.4
+        run: |
+          git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+          echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+          echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+          git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+          ~/.rbenv/bin/ruby-build 3.1.4 /opt/hostedtoolcache/Ruby/3.1.4/x64
+          touch /opt/hostedtoolcache/Ruby/3.1.4/x64.complete
+      - name: Cache Ruby
+        uses: actions/cache@v3
+        with:
+          path: /opt/hostedtoolcache/Ruby/3.1.4/x64
+          key: ruby-3.1.4
 
-    # ruby trial build
-    - uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
-      with:
-        ruby-version: '3.1'
-      - run: bundle install
-
-    - name: Build the site in the jekyll/builder container
-      run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+  build:
+    needs: setup-ruby
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build the site in the jekyll/builder container
+        run: |
+          docker run \
+          -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+          jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
